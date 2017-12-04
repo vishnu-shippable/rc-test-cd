@@ -1,0 +1,4 @@
+resources:
+  - name: test-artifactory-cli
+    type: cliConfig
+    integration: test-artifactory
