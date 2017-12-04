@@ -5,4 +5,4 @@ jobs:
       - IN: test-artifactory-cli
       - TASK:
         - script: echo "build number is $BUILD_NUMBER" > myfile.old.$BUILD_NUMBER.txt
-        - script: jfrog rt u myfile.$BUILD_NUMBER.txt generic-local/myfile.old.$BUILD_NUMBER.txt
+        - script: jfrog rt u myfile.old.$BUILD_NUMBER.txt generic-local/myfile.old.$BUILD_NUMBER.txt
