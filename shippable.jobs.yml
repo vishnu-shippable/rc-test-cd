@@ -1,16 +1,7 @@
 jobs:
   - name: old-x86-64-ubuntu-16-04-container-artifactory-cli
     type: runSh
-    runtime:
-      architecture: x86_64
-      os: Ubuntu_16.04
-      container: true
-    flags:
-      - x86-64
-      - ubuntu-16-04
     steps:
-      - IN: ubuntu-16-04-trigger
-      - IN: x86-64-trigger
       - IN: test-artifactory-cli
       - TASK:
           name: should-upload-file
