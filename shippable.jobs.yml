@@ -11,8 +11,6 @@ jobs:
   - name: old-x86-64-ubuntu-16-04-container-envs-all-in
     type: runSh
     steps:
-      - IN: x86-64-trigger
-      - IN: ubuntu-16-04-trigger
       - IN: master-cluster
       - IN: master-dockerOptions
       - IN: master-file
