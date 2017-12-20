@@ -6,3 +6,23 @@ jobs:
       - TASK:
         - script: echo "build number is $BUILD_NUMBER" > myfile.old.$BUILD_NUMBER.txt
         - script: jfrog rt u myfile.old.$BUILD_NUMBER.txt generic-local/myfile.old.$BUILD_NUMBER.txt
+
+
+  - name: old-x86-64-ubuntu-16-04-container-envs-all-in
+    type: runSh
+    steps:
+      - IN: x86-64-trigger
+      - IN: ubuntu-16-04-trigger
+      - IN: master-cluster
+      - IN: master-dockerOptions
+      - IN: master-file
+      - IN: master-gitRepo
+      - IN: master-image
+      - IN: checking-do-integration
+      - IN: checking-ssh-integration
+      - IN: master-params
+      - IN: master-replicas
+      - IN: master-trigger
+      - IN: master-version
+      - TASK:
+        - script: printenv
