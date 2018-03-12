@@ -34,3 +34,20 @@ jobs:
           name: single-cmd-should-work
           script:
             - dir
+            
+
+  - name: windows-runsh-container-min
+    type: runSh
+    runtime:
+      container: true
+    steps:
+      - TASK:
+          name: say-hello-world
+          runtime:
+            options:
+              imageName: "microsoft/windowsservercore"
+              imageTag: "10.0.14393.1884"
+          script:
+            - Write-Output "Hello world"
+            - docker ps | Measure-Object -line |  %{ $_.Lines }
+            - docker ps -a | Measure-Object -line |  %{ $_.Lines }
