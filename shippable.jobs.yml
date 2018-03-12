@@ -24,3 +24,10 @@ jobs:
       - IN: master-version
       - TASK:
         - script: printenv
+        
+  - name: old-runsh-min
+    type: runSh
+    steps:
+      - IN: test-hello
+      - TASK:
+        - script: echo "Hello world"
