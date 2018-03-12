@@ -25,8 +25,12 @@ jobs:
       - TASK:
         - script: printenv
         
-  - name: old-runsh-min
+  - name: runsh-min
     type: runSh
+    runtime:
+      container: false
     steps:
       - TASK:
-        - script: echo "Hello world"
+          name: single-cmd-should-work
+          script:
+            - dir
