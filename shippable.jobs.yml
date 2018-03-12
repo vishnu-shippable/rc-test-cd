@@ -45,8 +45,8 @@ jobs:
           name: say-hello-world
           runtime:
             options:
-              imageName: "microsoft/windowsservercore"
-              imageTag: "10.0.14393.1884"
+              imageName: "drydock/w16"
+              imageTag: "master"
           script:
             - Write-Output "Hello world"
             - docker ps | Measure-Object -line |  %{ $_.Lines }
