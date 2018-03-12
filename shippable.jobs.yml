@@ -49,5 +49,3 @@ jobs:
               imageTag: "master"
           script:
             - Write-Output "Hello world"
-            - docker ps | Measure-Object -line |  %{ $_.Lines }
-            - docker ps -a | Measure-Object -line |  %{ $_.Lines }
