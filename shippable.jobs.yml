@@ -27,6 +27,7 @@ jobs:
         
   - name: runsh-min
     type: runSh
+    allowPublicAccess: true
     runtime:
       container: false
     steps:
@@ -38,6 +39,7 @@ jobs:
 
   - name: windows-runsh-container-min
     type: runSh
+    allowPublicAccess: true
     runtime:
       container: true
     steps:
