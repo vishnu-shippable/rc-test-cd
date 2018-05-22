@@ -77,3 +77,30 @@ jobs:
               imageTag: "master"
           script:
             - Write-Output "Hello world"
+            
+            
+  - name: job-1
+    type: runSh
+    allowPublicAccess: true
+    runtime:
+      container: false
+    steps:
+      - TASK:
+          name: add-file-to-state
+          script:
+            - echo "hello"
+            - dir
+            
+            
+  - name: job-2
+    type: runSh
+    allowPublicAccess: true
+    runtime:
+      container: false
+    steps:
+      - IN: job-1
+      - TASK:
+          name: add-file-to-state
+          script:
+            - echo "hello"
+            - dir
