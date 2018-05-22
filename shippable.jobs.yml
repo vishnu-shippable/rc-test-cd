@@ -105,5 +105,7 @@ jobs:
       - TASK:
           name: add-file-to-state
           script:
+            - shipctl copy_file_from_resource_state "job-1" "myfile.txt" .
+            - cat myfile.txt
             - echo "hello"
             - dir
