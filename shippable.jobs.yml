@@ -52,6 +52,8 @@ jobs:
           script:
             - Write-Output "Hello world"
             - gci env:*
+            - cd $env:USERPROFILE
+            - dir
             - git clone https://github.com/scriptnull/node.git nodeRepo
             - dir
             
