@@ -1,12 +1,4 @@
-jobs:
-  - name: old-x86-64-ubuntu-16-04-container-artifactory-cli
-    type: runSh
-    steps:
-      - IN: test-artifactory-cli
-      - TASK:
-        - script: echo "build number is $BUILD_NUMBER" > myfile.old.$BUILD_NUMBER.txt
-        - script: jfrog rt u myfile.old.$BUILD_NUMBER.txt generic-local/myfile.old.$BUILD_NUMBER.txt
-        
+jobs:   
   - name: runsh-min
     type: runSh
     allowPublicAccess: true
@@ -37,7 +29,7 @@ jobs:
             - dir
             - git clone https://github.com/scriptnull/node.git nodeRepo
             - dir
-            - $env:USERPROFILE\nodeRepo\shipctl\x86_64\WindowsServer_2016\install.ps1
+            - $env:USERPROFILE/nodeRepo/shipctl/x86_64/WindowsServer_2016/install.ps1
             - dir
             
   - name: default-host
