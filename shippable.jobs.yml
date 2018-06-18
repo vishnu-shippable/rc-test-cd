@@ -25,11 +25,11 @@ jobs:
           script:
             - Write-Output "Hello world"
             - gci env:*
-            - cd $env:USERPROFILE
-            - dir
+            - mkdir $env:USERPROFILE/xx
+            - cd $env:USERPROFILE/xx
             - git clone https://github.com/scriptnull/node.git nodeRepo
-            - dir
-            - $env:USERPROFILE/nodeRepo/shipctl/x86_64/WindowsServer_2016/install.ps1
+            - cd ./nodeRepo
+#             - $env:USERPROFILE/nodeRepo/shipctl/x86_64/WindowsServer_2016/install.ps1
             - dir
             
   - name: default-host
