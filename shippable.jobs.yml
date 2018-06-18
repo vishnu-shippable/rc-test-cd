@@ -6,24 +6,6 @@ jobs:
       - TASK:
         - script: echo "build number is $BUILD_NUMBER" > myfile.old.$BUILD_NUMBER.txt
         - script: jfrog rt u myfile.old.$BUILD_NUMBER.txt generic-local/myfile.old.$BUILD_NUMBER.txt
-
-
-  - name: old-x86-64-ubuntu-16-04-container-envs-all-in
-    type: runSh
-    steps:
-      - IN: master-cluster
-      - IN: master-dockerOptions
-      - IN: master-file
-      - IN: master-gitRepo
-      - IN: master-image
-      - IN: checking-do-integration
-      - IN: checking-ssh-integration
-      - IN: master-params
-      - IN: master-replicas
-      - IN: master-trigger
-      - IN: master-version
-      - TASK:
-        - script: printenv
         
   - name: runsh-min
     type: runSh
@@ -35,11 +17,10 @@ jobs:
           name: single-cmd-should-work
           script:
             - dir
-            
 
   - name: windows-runsh-container-min
     type: runSh
-    allowPublicAccess: true
+    allowPublicAccess: false
     runtime:
       container: true
     steps:
@@ -55,6 +36,8 @@ jobs:
             - cd $env:USERPROFILE
             - dir
             - git clone https://github.com/scriptnull/node.git nodeRepo
+            - cd nodeRepo
+            - .\nodeRepo\shipctl\x86_64\WindowsServer_2016\install.ps1
             - dir
             
   - name: default-host
