@@ -16,6 +16,7 @@ jobs:
     runtime:
       container: true
     steps:
+      - IN: sample-gitRepo
       - TASK:
           name: say-hello-world
           runtime:
