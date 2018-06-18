@@ -33,6 +33,7 @@ jobs:
             - ./install.ps1
             - shipctl get_git_changes -path "$env:USERPROFILE/xx/nodeRepo" -depth 1 -commit-range "HEAD~1..HEAD"
             - shipctl get_git_changes -resource "sample-gitRepo" -depth 1
+            - shipctl get_git_changes -resource "sample-gitRepo" -directories-only
             - dir
 
   - name: default-host
