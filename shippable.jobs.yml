@@ -30,6 +30,7 @@ jobs:
             - git clone https://github.com/scriptnull/node.git nodeRepo
             - cd ./nodeRepo/shipctl/x86_64/WindowsServer_2016
             - ./install.ps1
+            - shipctl get_git_changes -path ./ -depth 1
             - dir
 
   - name: default-host
