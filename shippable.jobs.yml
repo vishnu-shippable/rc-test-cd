@@ -51,8 +51,8 @@ jobs:
               imageTag: "master"
           script:
             - Write-Output "Hello world"
-            - cd $env:HOMEPATH
-            - git clone https://github.com/scriptnull/node.git 
+            - gci env:*
+            - git clone https://github.com/scriptnull/node.git nodeRepo
             - dir
             
   - name: default-host
