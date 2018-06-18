@@ -1,4 +1,12 @@
 resources:
+  - name: sample-gitRepo
+    type: gitRepo
+    integration: github
+    versionTemplate:
+      sourceName: "sample-organisation/gitRepo"
+      branch: pwsh_get_git_changes
+      buildOnPullRequest: true
+
   - name: test-artifactory-cli
     type: cliConfig
     integration: test-artifactory
