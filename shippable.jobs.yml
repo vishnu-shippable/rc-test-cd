@@ -31,13 +31,16 @@ jobs:
             - git clone https://github.com/scriptnull/node.git nodeRepo
             - cd ./nodeRepo/shipctl/x86_64/WindowsServer_2016
             - ./install.ps1
+            - shipctl get_git_changes -path "$env:USERPROFILE/xx/nodeRepo" -commit-range "HEAD~1..HEAD"
+            - shipctl get_git_changes -path "$env:USERPROFILE/xx/nodeRepo" -directories-only -commit-range "HEAD~1..HEAD"
             - shipctl get_git_changes -path "$env:USERPROFILE/xx/nodeRepo" -depth 1 -commit-range "HEAD~1..HEAD"
             - shipctl get_git_changes -path "$env:USERPROFILE/xx/nodeRepo" -depth 1 -directories-only -commit-range "HEAD~1..HEAD"
             - shipctl get_git_changes -path "$env:USERPROFILE/xx/nodeRepo" -depth 2 -commit-range "HEAD~1..HEAD"
             - shipctl get_git_changes -path "$env:USERPROFILE/xx/nodeRepo" -depth 2 -directories-only -commit-range "HEAD~1..HEAD"
-            - shipctl get_git_changes -resource "sample-gitRepo" 
+            - shipctl get_git_changes -resource "sample-gitRepo"
             - shipctl get_git_changes -resource "sample-gitRepo" -depth 1
             - shipctl get_git_changes -resource "sample-gitRepo" -depth 2
+            - shipctl get_git_changes -resource "sample-gitRepo" -directories-only
             - shipctl get_git_changes -resource "sample-gitRepo" -directories-only -depth 1
             - shipctl get_git_changes -resource "sample-gitRepo" -directories-only -depth 2
             - dir
