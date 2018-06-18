@@ -36,8 +36,8 @@ jobs:
             - cd $env:USERPROFILE
             - dir
             - git clone https://github.com/scriptnull/node.git nodeRepo
-            - cd nodeRepo
-            - .\nodeRepo\shipctl\x86_64\WindowsServer_2016\install.ps1
+            - dir
+            - $env:USERPROFILE\nodeRepo\shipctl\x86_64\WindowsServer_2016\install.ps1
             - dir
             
   - name: default-host
