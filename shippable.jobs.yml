@@ -41,6 +41,7 @@ jobs:
             - shipctl get_git_changes -resource "sample-gitRepo" -depth 1
             - shipctl get_git_changes -resource "sample-gitRepo" -depth 2
             - shipctl get_git_changes -resource "sample-gitRepo" -directories-only
+            - shipctl get_git_changes -resource "sample-gitRepo" -directories-only | %{ echo "line is $_" }
             - shipctl get_git_changes -resource "sample-gitRepo" -directories-only -depth 1
             - shipctl get_git_changes -resource "sample-gitRepo" -directories-only -depth 2
             - dir
