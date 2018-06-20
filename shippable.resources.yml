@@ -1,4 +1,8 @@
 resources:
+  - name: mySecret
+    type: integration
+    integration: my-kv-integration 
+    
   - name: sample-gitRepo
     type: gitRepo
     integration: github
