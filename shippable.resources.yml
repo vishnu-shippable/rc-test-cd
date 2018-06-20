@@ -3,6 +3,10 @@ resources:
     type: integration
     integration: my-kv-integration 
     
+  - name: awsSecret
+    type: integration
+    integration: sample-aws-integration
+    
   - name: sample-gitRepo
     type: gitRepo
     integration: github
