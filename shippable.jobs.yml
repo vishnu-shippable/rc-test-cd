@@ -44,11 +44,12 @@ jobs:
       - IN: mySecret
       - IN: awsSecret
       - TASK:
-          name: say-hello-world
+          name: c7-testing
           runtime:
             options:
               imageName: "drydock/c7"
               imageTag: "master"
+              pull: true
           script:
             #- git clone https://github.com/scriptnull/node.git nodeRepo
             #- ./nodeRepo/shipctl/x86_64/Ubuntu_16.04/install.sh
@@ -58,11 +59,12 @@ jobs:
             - echo "$MY_USERNAME"
             - shipctl get_integration_resource_field awsSecret accessKey
       - TASK:
-          name: say-hello-world
+          name: u16-testing
           runtime:
             options:
               imageName: "drydock/u16"
               imageTag: "master"
+              pull: true
           script:
             #- git clone https://github.com/scriptnull/node.git nodeRepo
             #- ./nodeRepo/shipctl/x86_64/Ubuntu_16.04/install.sh
@@ -72,11 +74,12 @@ jobs:
             - echo "$MY_USERNAME"
             - shipctl get_integration_resource_field awsSecret accessKey
       - TASK:
-          name: say-hello-world
+          name: u14-testing
           runtime:
             options:
               imageName: "drydock/u14"
               imageTag: "master"
+              pull: true
           script:
             #- git clone https://github.com/scriptnull/node.git nodeRepo
             #- ./nodeRepo/shipctl/x86_64/Ubuntu_16.04/install.sh
