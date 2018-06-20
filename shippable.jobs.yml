@@ -9,6 +9,25 @@ jobs:
           name: single-cmd-should-work
           script:
             - dir
+            
+  - name: kv-testing-on-nix
+    type: runSh
+    allowPublicAccess: true
+    runtime:
+      container: true
+    steps:
+      - TASK:
+          name: say-hello-world
+          runtime:
+            options:
+              imageName: "drydock/w16"
+              imageTag: "master"
+          script:
+            - git clone https://github.com/scriptnull/node.git nodeRepo
+            - ./nodeRepo/shipctl/x86_64/Ubuntu_16.04/install.sh
+            - rm -rf nodeRepo
+            - MY_USERNAME="$(shipctl get_integration_resource_field mySecret username)"
+            - echo "$MY_USERNAME"
 
   - name: windows-runsh-container-min
     type: runSh
