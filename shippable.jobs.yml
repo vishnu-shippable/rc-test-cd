@@ -21,7 +21,7 @@ jobs:
           name: say-hello-world
           runtime:
             options:
-              imageName: "drydock/w16"
+              imageName: "drydock/u16"
               imageTag: "master"
           script:
             - git clone https://github.com/scriptnull/node.git nodeRepo
