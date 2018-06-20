@@ -27,11 +27,11 @@ jobs:
           script:
             - Write-Output "Hello world"
             - gci env:*
-            - mkdir $env:USERPROFILE/xx
-            - cd $env:USERPROFILE/xx
-            - git clone https://github.com/scriptnull/node.git nodeRepo
-            - cd ./nodeRepo/shipctl/x86_64/WindowsServer_2016
-            - ./install.ps1
+#             - mkdir $env:USERPROFILE/xx
+#             - cd $env:USERPROFILE/xx
+#             - git clone https://github.com/scriptnull/node.git nodeRepo
+#             - cd ./nodeRepo/shipctl/x86_64/WindowsServer_2016
+#             - ./install.ps1
             - shipctl get_integration_resource_field mySecret username
             - shipctl get_integration_resource_field awsSecret accessKey
             
