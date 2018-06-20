@@ -49,7 +49,6 @@ jobs:
             options:
               imageName: "drydock/c7"
               imageTag: "master"
-              pull: true
           script:
             #- git clone https://github.com/scriptnull/node.git nodeRepo
             #- ./nodeRepo/shipctl/x86_64/Ubuntu_16.04/install.sh
@@ -64,7 +63,6 @@ jobs:
             options:
               imageName: "drydock/u16"
               imageTag: "master"
-              pull: true
           script:
             #- git clone https://github.com/scriptnull/node.git nodeRepo
             #- ./nodeRepo/shipctl/x86_64/Ubuntu_16.04/install.sh
@@ -79,7 +77,6 @@ jobs:
             options:
               imageName: "drydock/u14"
               imageTag: "master"
-              pull: true
           script:
             #- git clone https://github.com/scriptnull/node.git nodeRepo
             #- ./nodeRepo/shipctl/x86_64/Ubuntu_16.04/install.sh
