@@ -35,6 +35,30 @@ jobs:
             - shipctl get_integration_resource_field mySecret username
             - shipctl get_integration_resource_field awsSecret accessKey
             
+  - name: pr-testing-nix
+    type: runSh
+    allowPublicAccess: true
+    runtime:
+      container: true
+    steps:
+      - IN: sample-gitRepo
+      - TASK:
+          name: c7-testing
+          runtime:
+            options:
+              imageName: "drydock/c7"
+              imageTag: "master"
+          script:
+            - shipctl get_git_changes -resource "sample-gitRepo"
+            - shipctl get_git_changes -resource "sample-gitRepo" -depth 1
+            - shipctl get_git_changes -resource "sample-gitRepo" -depth 2
+            - shipctl get_git_changes -resource "sample-gitRepo" -directories-only
+            - shipctl get_git_changes -resource "sample-gitRepo" -directories-only -depth 1
+            - shipctl get_git_changes -resource "sample-gitRepo" -directories-only -depth 2
+            #- git clone https://github.com/scriptnull/node.git nodeRepo
+            #- ./nodeRepo/shipctl/x86_64/Ubuntu_16.04/install.sh
+            #- rm -rf nodeRepo
+            
   - name: kv-testing-on-nix
     type: runSh
     allowPublicAccess: true
