@@ -47,12 +47,40 @@ jobs:
           name: say-hello-world
           runtime:
             options:
+              imageName: "drydock/c7"
+              imageTag: "master"
+          script:
+            #- git clone https://github.com/scriptnull/node.git nodeRepo
+            #- ./nodeRepo/shipctl/x86_64/Ubuntu_16.04/install.sh
+            #- rm -rf nodeRepo
+            - printenv
+            - export MY_USERNAME="$(shipctl get_integration_resource_field mySecret username)"
+            - echo "$MY_USERNAME"
+            - shipctl get_integration_resource_field awsSecret accessKey
+      - TASK:
+          name: say-hello-world
+          runtime:
+            options:
               imageName: "drydock/u16"
               imageTag: "master"
           script:
-            - git clone https://github.com/scriptnull/node.git nodeRepo
-            - ./nodeRepo/shipctl/x86_64/Ubuntu_16.04/install.sh
-            - rm -rf nodeRepo
+            #- git clone https://github.com/scriptnull/node.git nodeRepo
+            #- ./nodeRepo/shipctl/x86_64/Ubuntu_16.04/install.sh
+            #- rm -rf nodeRepo
+            - printenv
+            - export MY_USERNAME="$(shipctl get_integration_resource_field mySecret username)"
+            - echo "$MY_USERNAME"
+            - shipctl get_integration_resource_field awsSecret accessKey
+      - TASK:
+          name: say-hello-world
+          runtime:
+            options:
+              imageName: "drydock/u14"
+              imageTag: "master"
+          script:
+            #- git clone https://github.com/scriptnull/node.git nodeRepo
+            #- ./nodeRepo/shipctl/x86_64/Ubuntu_16.04/install.sh
+            #- rm -rf nodeRepo
             - printenv
             - export MY_USERNAME="$(shipctl get_integration_resource_field mySecret username)"
             - echo "$MY_USERNAME"
