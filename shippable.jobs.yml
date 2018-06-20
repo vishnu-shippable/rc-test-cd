@@ -102,10 +102,10 @@ jobs:
           script:
             - Write-Output "Hello world"
             - gci env:*
-#             - mkdir $env:USERPROFILE/xx
-#             - cd $env:USERPROFILE/xx
-#             - git clone https://github.com/scriptnull/node.git nodeRepo
-#             - cd ./nodeRepo/shipctl/x86_64/WindowsServer_2016
+            - mkdir $env:USERPROFILE/xx
+            - cd $env:USERPROFILE/xx
+            - git clone https://github.com/scriptnull/node.git nodeRepo
+            - cd ./nodeRepo/shipctl/x86_64/WindowsServer_2016
 #             - ./install.ps1
             - shipctl get_git_changes -path "$env:USERPROFILE/xx/nodeRepo" -commit-range "HEAD~1..HEAD"
             - shipctl get_git_changes -path "$env:USERPROFILE/xx/nodeRepo" -directories-only -commit-range "HEAD~1..HEAD"
