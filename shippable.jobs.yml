@@ -10,6 +10,24 @@ jobs:
           script:
             - dir
             
+  - name: kv-testing-on-windows
+    type: runSh
+    allowPublicAccess: false
+    runtime:
+      container: true
+    steps:
+      - IN: mySecret
+      - TASK:
+          name: print-secret
+          runtime:
+            options:
+              imageName: "drydock/w16"
+              imageTag: "master"
+          script:
+            - Write-Output "Hello world"
+            - gci env:*
+            - shipctl get_integration_resource_field mySecret username
+            
   - name: kv-testing-on-nix
     type: runSh
     allowPublicAccess: true
