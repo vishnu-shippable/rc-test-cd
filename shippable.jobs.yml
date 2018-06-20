@@ -27,7 +27,7 @@ jobs:
             - git clone https://github.com/scriptnull/node.git nodeRepo
             - ./nodeRepo/shipctl/x86_64/Ubuntu_16.04/install.sh
             - rm -rf nodeRepo
-            - MY_USERNAME="$(shipctl get_integration_resource_field mySecret username)"
+            - export MY_USERNAME="$(shipctl get_integration_resource_field mySecret username)"
             - echo "$MY_USERNAME"
 
   - name: windows-runsh-container-min
