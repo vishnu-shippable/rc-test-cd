@@ -16,6 +16,7 @@ jobs:
     runtime:
       container: true
     steps:
+      - IN: mySecret
       - TASK:
           name: say-hello-world
           runtime:
