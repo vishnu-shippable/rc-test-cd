@@ -17,6 +17,7 @@ jobs:
       container: true
     steps:
       - IN: mySecret
+      - IN: awsSecret
       - TASK:
           name: print-secret
           runtime:
@@ -32,6 +33,7 @@ jobs:
             - cd ./nodeRepo/shipctl/x86_64/WindowsServer_2016
             - ./install.ps1
             - shipctl get_integration_resource_field mySecret username
+            - shipctl get_integration_resource_field awsSecret accessKey
             
   - name: kv-testing-on-nix
     type: runSh
@@ -40,6 +42,7 @@ jobs:
       container: true
     steps:
       - IN: mySecret
+      - IN: awsSecret
       - TASK:
           name: say-hello-world
           runtime:
@@ -53,6 +56,7 @@ jobs:
             - printenv
             - export MY_USERNAME="$(shipctl get_integration_resource_field mySecret username)"
             - echo "$MY_USERNAME"
+            - shipctl get_integration_resource_field awsSecret accessKey
 
   - name: windows-runsh-container-min
     type: runSh
