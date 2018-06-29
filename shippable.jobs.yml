@@ -10,6 +10,48 @@ jobs:
           script:
             - dir
             
+  - name: provision-prod-infra
+    type: runSh
+    allowPublicAccess: true
+    runtime:
+      container: false
+    steps:
+      - TASK:
+          name: provision
+          script:
+            - ls
+    flags:
+      - production
+      - infra
+      
+  - name: build-prod-image
+    type: runSh
+    allowPublicAccess: true
+    runtime:
+      container: false
+    steps:
+      - IN: provision-prod-infra
+      - TASK:
+          name: build
+          script:
+            - ls
+    flags:
+      - production
+     
+  - name: deploy-prod-app
+    type: runSh
+    allowPublicAccess: true
+    runtime:
+      container: false
+    steps:
+      - IN: build-prod-image
+      - TASK:
+          name: deploy
+          script:
+            - ls
+    flags:
+      - production
+            
   - name: kv-testing-on-windows
     type: runSh
     allowPublicAccess: false
