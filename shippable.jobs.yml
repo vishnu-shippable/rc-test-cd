@@ -246,3 +246,27 @@ jobs:
             - cat myfile.txt
             - echo "hello"
             - dir
+            
+  - name: shipctl-on-host
+    type: runSh
+    runtime:
+      container: false
+    steps:
+      - TASK:
+          name: check-shipctl-on-host
+          script:
+            - echo "shipctl on host" 
+            
+  - name: shipctl-on-container
+    type: runSh
+    runtime:
+      container: true
+    steps:
+      - TASK:
+          name: check-shipctl-on-container
+          runtime:
+            options:
+              imageName: "drydock/u16all"
+              imageTag: "master"
+          script:
+            - echo "shipctl on host"
