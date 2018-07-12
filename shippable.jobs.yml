@@ -252,6 +252,7 @@ jobs:
     runtime:
       container: false
     steps:
+      - IN: aws-cliconfig
       - TASK:
           name: check-shipctl-on-host
           script:
@@ -263,6 +264,7 @@ jobs:
     runtime:
       container: true
     steps:
+      - IN: aws-cliconfig
       - TASK:
           name: check-shipctl-on-container
           runtime:
