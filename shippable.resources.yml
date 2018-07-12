@@ -7,6 +7,10 @@ resources:
     type: integration
     integration: sample-aws-integration
     
+  - name: aws-cliconfig
+    type: cliConfig
+    integration: sample-aws-integration
+    
   - name: sample-gitRepo
     type: gitRepo
     integration: github
