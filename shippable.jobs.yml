@@ -256,6 +256,7 @@ jobs:
           name: check-shipctl-on-host
           script:
             - echo "shipctl on host" 
+            - echo "IMAGE_EXEC_TEMPLATES_DIR = $IMAGE_EXEC_TEMPLATES_DIR"
             
   - name: shipctl-on-container
     type: runSh
@@ -269,4 +270,5 @@ jobs:
               imageName: "drydock/u16all"
               imageTag: "master"
           script:
-            - echo "shipctl on host"
+            - echo "shipctl on container"
+            - echo "IMAGE_EXEC_TEMPLATES_DIR = $IMAGE_EXEC_TEMPLATES_DIR"
