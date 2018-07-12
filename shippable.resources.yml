@@ -10,6 +10,8 @@ resources:
   - name: aws-cliconfig
     type: cliConfig
     integration: sample-aws-integration
+    versionTemplate:
+      region: "us-east-1"
     
   - name: sample-gitRepo
     type: gitRepo
