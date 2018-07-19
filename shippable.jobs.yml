@@ -274,3 +274,13 @@ jobs:
           script:
             - echo "shipctl on container"
             - echo "IMAGE_EXEC_TEMPLATES_DIR = $IMAGE_EXEC_TEMPLATES_DIR"
+            
+  - name: printenv-on-host
+    type: runSh
+    runtime:
+      container: false
+    steps:
+      - TASK:
+          name: env
+          script:
+            - printenv
