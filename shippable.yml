@@ -1,20 +1,11 @@
 jobs:       
   - name: shipctl-checking
     type: runSh
+    runtime:
+      container: false
     steps:
       - IN: sample_kv_int
       - IN: sample_aws_int
-      # remove clone step after release
-      - TASK:
-          name: patched
-          script:
-            - git clone https://github.com/scriptnull/node.git nodeRepo
-            - ./nodeRepo/shipctl/x86_64/Ubuntu_16.04/install.sh
-            - shipctl get_integration_resource_field sample_kv_int key1
-            - shipctl get_integration_resource_field sample_kv_int invalid_key
-            - shipctl get_integration_resource_field sample_aws_int accessKey
-            - shipctl get_integration_resource_field sample_aws_int invalid_key
-            - shipctl get_integration_resource_field invalid_resource_name accessKey
       - TASK:
           name: unpatched
           script:
