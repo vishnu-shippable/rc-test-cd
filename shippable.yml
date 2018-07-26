@@ -1,4 +1,11 @@
-jobs:       
+jobs:    
+  - name: my-ci-test_runCI
+    type: runCI
+    steps:
+      - IN: my-ci-test_ciRepo
+      - IN: sample_kv_int
+      - IN: sample_aws_int
+
   - name: shipctl-checking
     type: runSh
     runtime:
@@ -32,6 +39,9 @@ jobs:
             - shipctl get_integration_resource_field sample_aws_int accessKey
             # - shipctl get_integration_resource_field sample_aws_int invalid_key
             - shipctl get_integration_resource_field invalid_resource_name accessKey
+            
+            
+
 
 resources:          
   - name: sample_kv_int
