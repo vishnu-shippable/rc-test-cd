@@ -284,3 +284,24 @@ jobs:
           name: env
           script:
             - printenv
+            
+            
+  - name: check-job-env
+    type: runSh
+    runtime:
+      container: false
+    steps:
+      - TASK:
+          name: env
+          script:
+            - printenv
+            - pwd
+            - >
+              if [ $RESOURCE_ID -eq $JOB_TRIGGERED_BY_ID ]
+              then
+                WORKFLOW_TRIGGERED_BY_NAME=$JOB_TRIGGERED_BY_NAME
+              else
+                WORKFLOW_TRIGGERED_BY_NAME=$(shipctl get_resource_version_key "$JOB_TRIGGERED_BY_NAME" "WORKFLOW_TRIGGERED_BY_NAME")
+              fi
+              shipctl put_resource_state_multi $JOB_NAME "WORKFLOW_TRIGGERED_BY_NAME=$WORKFLOW_TRIGGERED_BY_NAME"
+
