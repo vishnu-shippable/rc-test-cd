@@ -296,6 +296,10 @@ jobs:
           script:
             - printenv
             - pwd
+            - echo "$RESOURCE_ID"
+            - echo "$JOB_TRIGGERED_BY_ID"
+            - echo "$JOB_TRIGGERED_BY_NAME"
+            - shipctl get_resource_version_key "$JOB_TRIGGERED_BY_NAME" "WORKFLOW_TRIGGERED_BY_NAME"
             - >
               if [ $RESOURCE_ID -eq $JOB_TRIGGERED_BY_ID ];
               then
