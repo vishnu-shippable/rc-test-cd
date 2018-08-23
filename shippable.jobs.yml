@@ -20,6 +20,9 @@ jobs:
           name: provision
           script:
             - ls
+            - echo "JOB_TRIGGERED_BY_NAME = $JOB_TRIGGERED_BY_NAME"
+            - echo "JOB_TRIGGERED_BY_ID = $JOB_TRIGGERED_BY_ID"
+            - echo "JOB_TRIGGERED_BY_USER = $JOB_TRIGGERED_BY_USER"
     flags:
       - production
       - infra
@@ -35,6 +38,9 @@ jobs:
           name: build
           script:
             - ls
+            - echo "JOB_TRIGGERED_BY_NAME = $JOB_TRIGGERED_BY_NAME"
+            - echo "JOB_TRIGGERED_BY_ID = $JOB_TRIGGERED_BY_ID"
+            - echo "JOB_TRIGGERED_BY_USER = $JOB_TRIGGERED_BY_USER"
     flags:
       - production
      
@@ -49,6 +55,9 @@ jobs:
           name: deploy
           script:
             - ls
+            - echo "JOB_TRIGGERED_BY_NAME = $JOB_TRIGGERED_BY_NAME"
+            - echo "JOB_TRIGGERED_BY_ID = $JOB_TRIGGERED_BY_ID"
+            - echo "JOB_TRIGGERED_BY_USER = $JOB_TRIGGERED_BY_USER"
     flags:
       - production
             
