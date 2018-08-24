@@ -5,6 +5,9 @@ jobs:
       - IN: my-ci-test_ciRepo
       - IN: sample_kv_int
       - IN: sample_aws_int
+    flags:
+      - production 
+     
 
   - name: shipctl-checking
     type: runSh
