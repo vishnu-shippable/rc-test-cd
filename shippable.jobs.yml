@@ -294,6 +294,17 @@ jobs:
           script:
             - printenv
             
+
+  - name: my-ci-test_runCI
+    type: runCI
+    steps:
+      - IN: my-ci-test_ciRepo
+      - IN: sample_kv_int
+      - IN: sample_aws_int
+      - IN: my-ci-test_ciRepo
+    flags:
+      - rc-test-cd_master_rSync
+      - production
             
   - name: check-job-env
     type: runSh
@@ -318,4 +329,5 @@ jobs:
               fi
               
               shipctl put_resource_state_multi $JOB_NAME "WORKFLOW_TRIGGERED_BY_NAME=$WORKFLOW_TRIGGERED_BY_NAME"
+              
 
