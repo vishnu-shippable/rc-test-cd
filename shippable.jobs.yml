@@ -8,7 +8,7 @@ jobs:
       - TASK:
           name: single-cmd-should-work
           script:
-            - dir
+            - ls ~
             
   - name: provision-prod-infra
     type: runSh
