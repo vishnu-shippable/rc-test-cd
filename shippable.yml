@@ -54,6 +54,7 @@ jobs:
           script:
             - echo "hello"
             - shipctl notify irc-notifier --text="hello from runsh job"
+            - echo "bye"
 
 resources:
   - name: irc-notifier
