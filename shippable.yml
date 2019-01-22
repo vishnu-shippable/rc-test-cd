@@ -62,7 +62,7 @@ resources:
     versionTemplate:
       method: irc
       recipients:
-        - "irc.freenode.net##ship-test"
+        - "herbert.freenode.net##ship-test"
 
   - name: sample_kv_int
     type: integration
