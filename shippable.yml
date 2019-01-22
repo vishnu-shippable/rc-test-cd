@@ -53,6 +53,7 @@ jobs:
           name: should-message-irc
           script:
             - echo "hello"
+            - shipctl notify irc-notifier --text="hello from runsh job"
 
 resources:
   - name: irc-notifier
