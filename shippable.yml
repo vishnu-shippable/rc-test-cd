@@ -42,19 +42,27 @@ jobs:
             - shipctl get_integration_resource_field sample_aws_int accessKey
             # - shipctl get_integration_resource_field sample_aws_int invalid_key
             - shipctl get_integration_resource_field invalid_resource_name accessKey
-            
-  - name: irc-testing
+
+  - name: irc-shipctl-testing
     type: runSh
-    runtime:
-      container: false
     steps:
       - IN: irc-notifier
       - TASK:
           name: should-message-irc
           script:
             - echo "hello"
-            - shipctl notify irc-notifier --text="hello from runsh job"
+            - shipctl notify irc-notifier --text="hello from runsh jobin RC"
             - echo "bye"
+            
+  - name: irc-notify-testing
+    type: runSh
+    on_start:
+      - NOTIFY: irc-notifier
+    steps:
+      - TASK:
+          name: should-message-irc
+          script:
+            - echo "hello"
 
 resources:
   - name: irc-notifier
@@ -62,7 +70,7 @@ resources:
     versionTemplate:
       method: irc
       recipients:
-        - "chat.freenode.net#ship-test"
+        - "chat.freenode.net#shiptest"
 
   - name: sample_kv_int
     type: integration
