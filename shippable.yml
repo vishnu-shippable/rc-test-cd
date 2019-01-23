@@ -52,7 +52,6 @@ jobs:
           script:
             - echo "hello"
             - shipctl notify irc-notifier --text="hello from runsh jobin RC"
-            - echo "bye"
             
   - name: irc-notify-testing
     type: runSh
