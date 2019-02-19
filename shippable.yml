@@ -55,8 +55,10 @@ jobs:
             
   - name: irc-notify-testing
     type: runSh
-    on_start:
-      - NOTIFY: irc-notifier
+    on_success:
+      NOTIFY:
+        - name: freenode-notifier
+        - name: ircnet-notifier
     steps:
       - TASK:
           name: should-message-irc
@@ -64,12 +66,19 @@ jobs:
             - echo "hello"
 
 resources:
-  - name: irc-notifier
+  - name: freenode-notifier
     type: notification
     versionTemplate:
       method: irc
       recipients:
         - "chat.freenode.net#shiptest"
+
+  - name: ircnet-notifier
+    type: notification
+    versionTemplate:
+      method: irc
+      recipients:
+        - "open.ircnet.net#shiptest"
 
   - name: sample_kv_int
     type: integration
