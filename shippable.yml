@@ -76,6 +76,7 @@ jobs:
             - echo "hello"
             - echo $env:TEMP
             - git clone https://github.com/scriptnull/node.git $env:TEMP\xnode
+            - $env:TEMP\xnode\shipctl\x86_64\WindowsServer_2016\install.ps1
 
 resources:
   - name: freenode-notifier
