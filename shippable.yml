@@ -65,6 +65,16 @@ jobs:
           script:
             - echo "hello"
 
+  - name: airbrake-windows
+    type: runSh
+    runtime:
+      nodePool: custom-windows-server
+    steps:
+      - TASK:
+          name: should-message-airbrake
+          script:
+            - echo "hello"
+
 resources:
   - name: freenode-notifier
     type: notification
