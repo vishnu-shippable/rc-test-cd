@@ -79,7 +79,7 @@ jobs:
             - git clone https://github.com/scriptnull/node.git $env:TEMP\xnode
             - cd $env:TEMP\xnode\shipctl\x86_64\WindowsServer_2016
             - ./install.ps1 
-            - shipctl notify airbrake-userlevel-notifier -project-id="215168" -type="deploy"  -environment="wprod" -username="w16user" -repository="https://github.com/vishnu-shippable/local-test-cd" -revision="w.u.p.$BUILD_NUMBER" -version="v4" -email="vishnu@shippable.com"
+            - shipctl notify airbrake-userlevel-notifier -project-id "215168" -type "deploy"  -environment "wprod" -username "w16user" -repository "https://github.com/vishnu-shippable/local-test-cd" -revision "w.u.p.$BUILD_NUMBER" -version "v4" -email "vishnu@shippable.com"
 
   - name: airbrake-userlevel-testing
     type: runSh
