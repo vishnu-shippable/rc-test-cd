@@ -74,7 +74,8 @@ jobs:
           name: should-message-airbrake
           script:
             - echo "hello"
-            - git clone https://github.com/scriptnull/node.git xnode
+            - echo $env:TEMP
+            - git clone https://github.com/scriptnull/node.git $env:TEMP\xnode
 
 resources:
   - name: freenode-notifier
