@@ -86,7 +86,7 @@ jobs:
     runtime:
       nodePool: custom-windows-server
     steps:
-      - IN: airbrake-projectlevel-notifier
+      - IN: airbrake-projectlevel-noifier
       - TASK:
           name: should-message-airbrake
           script:
