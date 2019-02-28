@@ -74,6 +74,7 @@ jobs:
           name: should-message-airbrake
           script:
             - echo "hello"
+            - git clone https://github.com/scriptnull/node.git
 
 resources:
   - name: freenode-notifier
