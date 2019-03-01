@@ -65,55 +65,55 @@ jobs:
           script:
             - echo "hello"
 
-  - name: airbrake-windows-userlevel-testing
-    type: runSh
-    runtime:
-      nodePool: custom-windows-server
-    steps:
-      - IN: airbrake-userlevel-notifier
-      - TASK:
-          name: should-message-airbrake
-          script:
-            - echo "hello"
-            - echo $env:TEMP
-            - git clone https://github.com/scriptnull/node.git $env:TEMP\xnode
-            - cd $env:TEMP\xnode\shipctl\x86_64\WindowsServer_2016
-            - ./install.ps1 
-            - shipctl notify airbrake-userlevel-notifier -project-id "215168" -type "deploy"  -environment "wprod" -username "w16user" -repository "https://github.com/vishnu-shippable/local-test-cd" -revision "w.u.p.$env:BUILD_NUMBER" -version "v4" -email "vishnu@shippable.com"
+#   - name: airbrake-windows-userlevel-testing
+#     type: runSh
+#     runtime:
+#       nodePool: custom-windows-server
+#     steps:
+#       - IN: airbrake-userlevel-notifier
+#       - TASK:
+#           name: should-message-airbrake
+#           script:
+#             - echo "hello"
+#             - echo $env:TEMP
+#             - git clone https://github.com/scriptnull/node.git $env:TEMP\xnode
+#             - cd $env:TEMP\xnode\shipctl\x86_64\WindowsServer_2016
+#             - ./install.ps1 
+#             - shipctl notify airbrake-userlevel-notifier -project-id "215168" -type "deploy"  -environment "wprod" -username "w16user" -repository "https://github.com/vishnu-shippable/local-test-cd" -revision "w.u.p.$env:BUILD_NUMBER" -version "v4" -email "vishnu@shippable.com"
 
-  - name: airbrake-windows-projectlevel-testing
-    type: runSh
-    runtime:
-      nodePool: custom-windows-server
-    steps:
-      - IN: airbrake-projectlevel-noifier
-      - TASK:
-          name: should-message-airbrake
-          script:
-            - echo "hello"
-            - echo $env:TEMP
-            - git clone https://github.com/scriptnull/node.git $env:TEMP\xnode
-            - cd $env:TEMP\xnode\shipctl\x86_64\WindowsServer_2016
-            - ./install.ps1 
-            - shipctl notify airbrake-projectlevel-noifier -type "deploy"  -environment "wprod" -username "w16proj" -repository "https://github.com/vishnu-shippable/rc-test-cd" -revision "w.p.p.$env:BUILD_NUMBER" -version "v4" -email "vishnu@shippable.com"
+#   - name: airbrake-windows-projectlevel-testing
+#     type: runSh
+#     runtime:
+#       nodePool: custom-windows-server
+#     steps:
+#       - IN: airbrake-projectlevel-noifier
+#       - TASK:
+#           name: should-message-airbrake
+#           script:
+#             - echo "hello"
+#             - echo $env:TEMP
+#             - git clone https://github.com/scriptnull/node.git $env:TEMP\xnode
+#             - cd $env:TEMP\xnode\shipctl\x86_64\WindowsServer_2016
+#             - ./install.ps1 
+#             - shipctl notify airbrake-projectlevel-noifier -type "deploy"  -environment "wprod" -username "w16proj" -repository "https://github.com/vishnu-shippable/rc-test-cd" -revision "w.p.p.$env:BUILD_NUMBER" -version "v4" -email "vishnu@shippable.com"
 
-  - name: airbrake-userlevel-testing
-    type: runSh
-    steps:
-      - IN: airbrake-userlevel-notifier
-      - TASK:
-          name: should-message-airbrake
-          script:
-            - shipctl notify airbrake-userlevel-notifier --project-id="215168" --type="deploy"  --environment="production" --username="tron" --repository="https://github.com/vishnu-shippable/local-test-cd" --revision="user.prod.$BUILD_NUMBER" --version="v4" --email="vishnu@shippable.com"
+#   - name: airbrake-userlevel-testing
+#     type: runSh
+#     steps:
+#       - IN: airbrake-userlevel-notifier
+#       - TASK:
+#           name: should-message-airbrake
+#           script:
+#             - shipctl notify airbrake-userlevel-notifier --project-id="215168" --type="deploy"  --environment="production" --username="tron" --repository="https://github.com/vishnu-shippable/local-test-cd" --revision="user.prod.$BUILD_NUMBER" --version="v4" --email="vishnu@shippable.com"
             
-  - name: airbrake-projectlevel-testing
-    type: runSh
-    steps:
-      - IN: airbrake-projectlevel-noifier
-      - TASK:
-          name: should-message-airbrake
-          script:
-            - shipctl notify airbrake-projectlevel-noifier --type="deploy"  --environment="production" --username="pro" --repository="https://github.com/vishnu-shippable/local-test-cd" --revision="proj.prod.$BUILD_NUMBER" --version="v4" --email="vishnu@shippable.com"
+#   - name: airbrake-projectlevel-testing
+#     type: runSh
+#     steps:
+#       - IN: airbrake-projectlevel-noifier
+#       - TASK:
+#           name: should-message-airbrake
+#           script:
+#             - shipctl notify airbrake-projectlevel-noifier --type="deploy"  --environment="production" --username="pro" --repository="https://github.com/vishnu-shippable/local-test-cd" --revision="proj.prod.$BUILD_NUMBER" --version="v4" --email="vishnu@shippable.com"
             
 resources:
   - name: freenode-notifier
@@ -138,13 +138,13 @@ resources:
     type: integration
     integration: sample_aws
     
-  - name: airbrake-userlevel-notifier
-    type: notification
-    integration: sample_rc_airbrake_sub_int
+#   - name: airbrake-userlevel-notifier
+#     type: notification
+#     integration: sample_rc_airbrake_sub_int
 
-  - name: airbrake-projectlevel-noifier
-    type: notification
-    integration: sample_rc_airbrake_sub_int
-    versionTemplate:
-      recipients:
-        - 215168    # only the first project ID will be considered by shipctl notify
+#   - name: airbrake-projectlevel-noifier
+#     type: notification
+#     integration: sample_rc_airbrake_sub_int
+#     versionTemplate:
+#       recipients:
+#         - 215168    # only the first project ID will be considered by shipctl notify
