@@ -68,7 +68,8 @@ jobs:
   - name: airbrake-windows-userlevel-testing
     type: runSh
     runtime:
-      nodePool: custom-windows-server
+      nodePool: dynamic__x86_64__WindowsServer_2016__c4_large
+#       nodePool: custom-windows-server
     steps:
       - IN: airbrake-userlevel-notifier
       - TASK:
